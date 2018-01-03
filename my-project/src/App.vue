@@ -1,13 +1,19 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <headerV></headerV>
+    <loginForm></loginForm>
   </div>
 </template>
 
 <script>
+import headerV from './components/headerV'
+import loginForm from './pages/loginForm.vue'
+
 export default {
-  name: 'app'
+  name: 'app',
+  components:{headerV,
+  loginForm
+  }
 }
 </script>
 
@@ -18,6 +24,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 </style>

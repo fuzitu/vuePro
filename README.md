@@ -14,5 +14,25 @@
 ##利用的技术##
 - vue
 - vue-router
-- axios
-- vuex
+- axios  npm install axios
+- vuex npm install vuex --save
+- muse-ui npm install --save muse-ui
+
+用到字体图标 坏掉 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+----------------------------------------------------------------------------
+###开始干活###
+####header####
+- app bar 结构
+- 需要有登录退出功能
+点击左边需要出来登录的遮罩--
+   未登录-遮罩为登录;
+   已登录-为用户头像,签名等
+点击右侧菜单需要有设置退出等功能
+   已登录-应该有退出功能;
+   未登录-没有退出功能
+其他的模块也要用 所有单个组件并且引入vuex进行状态管理
+
+store.js 总入口
+types.js 不同种类的变量定义
+modules 文件夹
