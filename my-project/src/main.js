@@ -6,6 +6,7 @@ import router from './router'
 //引入museui 框架
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
+// import 'muse-ui/dist/theme-teal.css'
 
 //引入store
 import store from './store/store'
