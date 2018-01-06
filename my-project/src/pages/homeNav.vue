@@ -23,14 +23,14 @@
     },
     methods: {
       ...mapActions(['getListData']),
-      getList(){
+      getList(upRef){
         let $that = this;
         let $option = {
           page:$that.page,
           tab: $that.activeTab,
           limit:$that.limit
         };
-        this.getListData({$option});
+        this.getListData({$option,upRef});
       },
       handleTabChange(val){
         this.page = 1;
@@ -42,21 +42,24 @@
         this.activeTab = this.$route.params[0];//初始化路由参数用于同步请求tab
       }
       this.getList();
-    //   this.vStatus.$on('pullUpRefresh',function (upRef) { //接收list组件的下拉刷新事件并回调
-    //     this.getUpRefesh(upRef);
-    //     this.page += 1;
-    //     this.getList(upRef);
-    //   }.bind(this))
+      // this.vStatus.$on('pullUpRefresh',function (upRef) { //接收list组件的下拉刷新事件并回调
+      //   this.getUpRefesh(upRef);
+      //   this.page += 1;
+      //   this.getList(upRef);
+      // }.bind(this))
     },
     watch: {
       '$route' (to, from) {
         // 对路由变化作出响应...
+
+        console.log(to.matched);
         if (to.matched.some(record => record.meta.listAuth)) {
           this.activeTab = to.params[0];
           this.getList();
         }
         //进入home时，回到离开时的路由
         if(to.name === 'home'){
+          console.log(1111)
           this.$router.push({ path: `${to.path}/${this.activeTab}` })
         }
       }
